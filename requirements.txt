@@ -1,5 +1,9 @@
-openmeteo_requests
-pandas
-retry
-requests_cache
-requests 
+streamlit
+tensorflow
+pillow
+numpy
+joblib
+scikit-learn
+requests
+requests-cache
+xgboost
