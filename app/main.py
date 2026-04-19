@@ -59,7 +59,12 @@ with st.sidebar:
     if st.button("Load Weather Data", key="load_weather_button"):
         with st.spinner("Loading weather data..."):
             try:
-                st.session_state.weather = get_weather_data(latitude, longitude)
+                new_weather = get_weather_data(latitude, longitude)
+                st.session_state.weather = new_weather
+                # Update the input fields with new weather data
+                st.session_state.temperature = new_weather.get("temperature", 25.0)
+                st.session_state.humidity = new_weather.get("humidity", 50.0)
+                st.session_state.rainfall = new_weather.get("precipitation", 0.0)
                 st.success("Weather data loaded successfully!")
             except Exception as e:
                 st.error(f"Unable to load weather data: {e}")
